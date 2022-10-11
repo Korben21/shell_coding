@@ -18,7 +18,7 @@ if [ "$1" == "--create" ];then
     nb_machine=1
     [ "$2" != "" ] && nb_machine=$2
     #Création des conteneurs
-    echo "Début de la création du conteneur"
+    echo "Début de la création du conteneur..."
     for i in $(seq 1 $nb_machine);do
       docker run -tid --name $USER-alpine_$i alpine:latest
       echo "Conteneur $USER-alpine_$i créé"
@@ -27,7 +27,7 @@ if [ "$1" == "--create" ];then
 # Si option --drop
 elif [ "$1" == "--drop" ];then
 
-    echo "Début de la supression"
+    echo "Début de la supression..."
     docker rm -f $(docker ps -a | grep $USER-alpine | awk '{print $1}')
     echo "Fin de la suppression"
 
